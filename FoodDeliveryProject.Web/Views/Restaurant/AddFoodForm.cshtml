@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "AddFoodForm";
+}
+
+<h2>Add Food Form</h2>
+<form action="~/Restaurant/AddFood">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input type="text" name="name" />
+            </td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td>
+                <input type="text" name="price" />
+            </td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>
+                <input type="text" name="description" />
+            </td>
+        </tr>
+        <tr>
+            <td>Status:</td>
+            <td>
+                <input type="radio" name="status" value="available" />Available
+            </td>
+            <td>
+                <input type="radio" name="status" value="unavailable" />Unavailable
+            </td>
+        </tr>
+        <tr>
+            <td>Type:</td>
+            <td>
+                <input type="radio" name="type" value="standard" />Standard
+            </td>
+            <td>
+                <input type="radio" name="type" value="custom" />Custom
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Add food" />
+            </td>
+        </tr>
+    </table>
+</form>
+

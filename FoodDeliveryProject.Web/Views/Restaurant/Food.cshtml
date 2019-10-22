@@ -1,0 +1,54 @@
+﻿@using FoodDeliveryProject.Model.Models
+@model IEnumerable<Food>
+@{
+    ViewBag.Title = "Food";
+}
+
+<h2>Food</h2>
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Subcategory</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Type</th>
+    </tr>
+    @foreach (var f in Model)
+    {
+        <tr>
+            <td>@f.Subcategory.Category.CategoryName</td>
+            <td>@f.Subcategory.SubcategoryName</td>
+            <td>@f.FoodName</td>
+            <td>@f.FoodPrice</td>
+            <td>@f.FoodDescription</td>
+            <td>@f.FoodStatus</td>
+            <td>@f.FoodType</td>
+            @if (f.FoodType == FoodDeliveryProject.Model.Enumerations.FoodType.Custom)
+            {
+                <td>
+                    <a href="~/Restaurant/ListIngredients?foodId=@f.Id&restaurantId=@f.RestaurantId">See ingredients</a>
+                </td>
+            }  
+            @if (ViewBag.showAddToRestaurant != "")
+            {
+                <td>
+                    <a href="~/Restaurant/AddFoodToRestaurantForm?foodId=@f.Id">Add to restaurant</a>
+                </td>
+            }
+            <td>
+                <a href="~/Restaurant/EditFoodForm?foodId=@f.Id">Edit</a>
+            </td>
+                    
+        </tr>
+    }
+    <tr>
+        <td>
+            <form action="~/Restaurant/AddFoodForm">
+                <input type="submit" value="Add new" />
+            </form>
+        </td>
+    </tr>
+</table>
+

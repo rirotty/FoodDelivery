@@ -1,0 +1,81 @@
+﻿@model FoodDeliveryProject.Model.Models.Restaurant
+
+@{
+    ViewBag.Title = "AddWorkingHoursForm";
+}
+
+<h2>Add Working Hours Form</h2>
+<form action="~/Restaurant/AddWorkingHours">
+    <input type="hidden" name="restaurantId" value="@Model.Id" />
+    <table>
+        <tr>
+            <td>Monday: </td>
+            <td>
+                <input type="time" name="mondayOpeningHours" />
+            </td>
+            <td>
+                <input type="time" name="mondayClosingHours" />
+            </td>
+        </tr>
+        <tr>
+            <td>Tuesday: </td>
+            <td>
+                <input type="time" name="tuesdayOpeningHours" />
+            </td>
+            <td>
+                <input type="time" name="tuesdayClosingHours" />
+            </td>
+        </tr>
+        <tr>
+            <td>Wednesday: </td>
+            <td>
+                <input type="time" name="wednesdayOpeningHours" />
+            </td>
+            <td>
+                <input type="time" name="wednesdayClosingHours" />
+            </td>
+        </tr>
+        <tr>
+            <td>Thursday: </td>
+            <td>
+                <input type="time" name="thursdayOpeningHours" />
+            </td>
+            <td>
+                <input type="time" name="thursdayClosingHours" />
+            </td>
+        </tr>
+        <tr>
+            <td>Friday: </td>
+            <td>
+                <input type="time" name="fridayOpeningHours" />
+            </td>
+            <td>
+                <input type="time" name="fridayClosingHours" />
+            </td>
+        </tr>
+        <tr>
+            <td>Saturday: </td>
+            <td>
+                <input type="time" name="saturdayOpeningHours" />
+            </td>
+            <td>
+                <input type="time" name="saturdayClosingHours" />
+            </td>
+        </tr>
+        <tr>
+            <td>Sunday: </td>
+            <td>
+                <input type="time" name="sundayOpeningHours" />
+            </td>
+            <td>
+                <input type="time" name="sundayClosingHours" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Add" />
+            </td>
+        </tr>
+    </table>
+</form>
+

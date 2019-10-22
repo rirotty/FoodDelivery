@@ -1,0 +1,99 @@
+﻿@model FoodDeliveryProject.Services.RestaurantService.RestaurantViewModel
+
+@{
+    ViewBag.Title = "AddRestaurantForm";
+}
+
+<h2>Add Restaurant Form</h2>
+<form action="~/Restaurant/AddRestaurant" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input type="text" name="RestaurantName" required />
+            </td>
+        </tr>
+        <tr>
+            <th>Address:</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="RestaurantAddress.StreetName" placeholder="Street name" required />
+            </td>
+            <td>
+                <input type="text" name="RestaurantAddress.StreetNumber" placeholder="Street number" required />
+            </td>
+            <td>
+                <input type="text" name="RestaurantAddress.ApartmentNumber" placeholder="Apartment number(optional)"/>
+            </td>
+            <td>
+                <input type="text" name="RestaurantAddress.Floor" placeholder="Floor(optional)" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="RestaurantAddress.City" placeholder="City" required />
+            </td>
+            <td>
+                <input type="text" name="RestaurantAddress.PostalCode" placeholder="Postal code" required />
+            </td>
+            <td>
+                <input type="text" name="RestaurantAddress.Province" placeholder="Province" required />
+            </td>
+            <td>
+                <input type="text" name="RestaurantAddress.Country" placeholder="Country" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Phone number:</td>
+            <td>
+                <input type="text" name="RestaurantPhoneNumber" required />
+            </td>
+        </tr>
+        <tr>
+            <td>E-mail:</td>
+            <td>
+                <input type="text" name="RestaurantEmail" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Website:</td>
+            <td>
+                <input type="text" name="RestaurantWebsite" />
+            </td>
+        </tr>
+        <tr>
+            <td>Preparation time:</td>
+            <td>
+                <input type="text" name="PreparationTime" />
+            </td>
+        </tr>
+        <tr>
+            <td>Minimum amount:</td>
+            <td>
+                <input type="text" name="MinimumOrderPrice" />
+            </td>
+        </tr>
+        <tr>
+            <td>Amount for free delivery:</td>
+            <td>
+                <input type="text" name="FreeDeliveryOrderPrice" />
+            </td>
+        </tr>
+        <tr>
+            <td>Vacation:</td>
+            <td>
+                From:<input type="date" name="VacationFrom" />
+            </td>
+            <td>
+                To:<input type="date" name="VacationTo" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Add restaurant" />
+            </td>
+        </tr>
+    </table>
+</form>
+

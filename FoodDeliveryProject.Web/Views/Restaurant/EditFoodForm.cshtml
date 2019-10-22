@@ -1,0 +1,110 @@
+﻿@using FoodDeliveryProject.Model.Models
+@model Food
+
+@{
+    ViewBag.Title = "EditFoodForm";
+}
+
+<h2>Edit Food Form</h2>
+<form action="~/Restaurant/EditFood">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input type="text" name="name" value="@Model.FoodName"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td>
+                <input type="text" name="price" value="@Model.FoodPrice" />
+            </td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>
+                <input type="text" name="description" value="@Model.FoodDescription"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Status:</td>
+            @if (Model.FoodStatus == FoodDeliveryProject.Model.Enumerations.FoodStatus.Available)
+            {
+                <td>
+                    <input type="radio" name="status" value="available" checked/>Available
+                </td>
+                <td>
+                    <input type="radio" name="status" value="unavailable" />Unavailable
+                </td>
+            }
+            else
+            {
+                <td>
+                    <input type="radio" name="status" value="available" />Available
+                </td>
+                <td>
+                    <input type="radio" name="status" value="unavailable" checked />Unavailable
+                </td>
+            }          
+        </tr>
+        <tr>
+            <td>Type:</td>
+            @if (Model.FoodType == FoodDeliveryProject.Model.Enumerations.FoodType.Custom)
+            {
+                <td>
+                    <input type="radio" name="type" value="standard" />Standard
+                </td>
+                <td>
+                    <input type="radio" name="type" value="custom" checked/>Custom
+                </td>
+            }
+            else
+            {
+                <td>
+                    <input type="radio" name="type" value="standard" checked/>Standard
+                </td>
+                <td>
+                    <input type="radio" name="type" value="custom" />Custom
+                </td>
+            }
+        </tr>
+        @if (Model.FoodType == FoodDeliveryProject.Model.Enumerations.FoodType.Custom)
+        {
+            <tr>
+                <td>Ingredients</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <td><a href="~/Restaurant/AddIngredientForm?foodId=@Model.Id">Add new</a></td>
+            </tr>
+            foreach (var i in Model.Ingredients)
+            {
+                <tr>
+                    <td>
+                        @i.IngredientName
+                    </td>
+                    <td>
+                        @i.IngredientPrice
+                    </td>
+                    <td>
+                        @i.IngredientDescription
+                    </td>
+                    <td>
+                        <a href="~/Restaurant/EditIngredientForm?ingredientId=@i.Id">Edit</a>
+                    </td>
+                    <td>
+                        <a href="~/Restaurant/RemoveIngredient?ingredientId=@i.Id">Remove</a>
+                    </td>
+                </tr>
+            }
+        }
+        <tr>
+            <td>
+                <input type="submit" value="Save changes" />
+            </td>
+        </tr>
+    </table>
+</form>
+

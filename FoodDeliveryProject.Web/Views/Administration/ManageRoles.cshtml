@@ -1,0 +1,72 @@
+﻿@model IEnumerable<string>
+@{
+    ViewBag.Title = "Add Role";
+}
+<head>
+    
+</head>
+<body>
+    <script>
+        function RemoveRole(item) {
+            var result = confirm("Are you Sure you Want to Delete Selected Record(S) ?");
+            if (result) {
+                var item = item;
+                jQuery.ajax
+                ({
+                    url: 'Administration/RemoveRole',
+                    type: 'POST',
+                    dataType: 'text',
+                    data: { str: roleName },
+                    success: function () {
+                        //location.reload();
+                        alert("success");
+                    },
+                    error: function () {
+                        alert("failed");
+                    }
+                });
+            }
+        }
+    </script>
+    <table style=" background-color:#FFFFFF; border dashed 3px #6D7B8D; padding 5px;width 99%;table-layout:fixed;" cellpadding="6" cellspacing="6">
+        <tr style="height: 30px; background-color:#336699 ; color:#FFFFFF ;border: solid 1px #659EC7;">
+            <td align="center" colspan="2">
+                <h2> Create User Roles</h2>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>
+                <table id="tbrole" style="width:100%; border:dotted 1px; background-color:gainsboro; padding-left:10px;">
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td style="width:100%; border:dotted 1px;">
+                                @Html.DisplayFor(m => item)
+                            </td>
+                            <td>
+                                <div>
+                                    <button onclick="RemoveRole(@item);" class="btn btn-default">Delete</button>
+                                </div>
+                            </td>
+                        </tr>}
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    @using (Html.BeginForm("AddRole", "Administration", FormMethod.Post))
+    {
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="text" name="role" />
+            </div>
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="AddRole" />
+            </div>
+        </div>
+    }
+</body>
+ 

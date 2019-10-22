@@ -1,0 +1,30 @@
+﻿@using FoodDeliveryProject.Model.Models
+@model IEnumerable<Delivery>
+
+@{
+    ViewBag.Title = "Deliveries";
+}
+
+<h2>List Deliveries</h2>
+<table>
+    <tr>
+        <th>Address</th>
+        <th>Status</th>
+        <th>Departure time</th>
+    </tr>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.SpecifiedAddress.StreetName @d.SpecifiedAddress.StreetNumber @d.SpecifiedAddress.City</td>
+            <td>@d.DeliveryStatus</td>
+            <td>@d.DeliveryDeparture</td>
+            @if (d.DeliveryStatus == FoodDeliveryProject.Model.Enumerations.DeliveryStatus.WaitingForApproval)
+            {
+                <td>
+                    <a href="~/Restaurant/ApproveDelivery?deliveryId=@d.Id">Approve</a>
+                </td>
+            }
+        </tr>
+    }
+</table>
+

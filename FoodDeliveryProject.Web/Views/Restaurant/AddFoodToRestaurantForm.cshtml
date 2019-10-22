@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "AddFoodToRestaurantForm";
+}
+
+<h2>Add Food To Restaurant Form</h2>
+
+<form action="~/Restaurant/AddFoodToRestaurant">
+    <table>
+        <tr>
+            <td>Restaurant name: </td>
+            <td>
+                <input type="text" name="restaurantName" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="addToAll" />Add to all
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Add" />
+            </td>
+        </tr>
+    </table>
+</form>
+

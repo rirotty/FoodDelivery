@@ -1,0 +1,35 @@
+﻿@using FoodDeliveryProject.Model.Models
+@model Ingredient
+
+@{
+    ViewBag.Title = "EditIngredientForm";
+}
+
+<h2>Edit Ingredient Form</h2>
+<form action="~/Restaurant/EditIngredient">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input type="text" name="name" value="@Model.IngredientName" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td>
+                <input type="text" name="price" value="@Model.IngredientPrice" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>
+                <input type="text" name="description" value="@Model.IngredientDescription" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Save changes" />
+            </td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,36 @@
+﻿@model FoodDeliveryProject.Web.ViewModels.UsersRoleRequestViewModel
+@{
+    ViewBag.Title = "Apply For Partnership";
+    ViewBag.Message = "Select the role you want to apply for, and please upload validation documentation.";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("ApplyForPartnership", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>@ViewBag.Message</h4>
+    <div class="form-group">
+        @Html.Label("Register as", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownList("Role", (SelectList)ViewBag.Name, " ")
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Validation Document", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            <input type="file" name="validationDocument" id="validationDocument" />
+            @Html.ValidationMessageFor(m => m.ValidationDocument)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Apply" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

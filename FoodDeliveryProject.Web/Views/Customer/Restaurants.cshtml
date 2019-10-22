@@ -1,0 +1,23 @@
+﻿@using FoodDeliveryProject.Model.Models
+@model IEnumerable<Restaurant>
+@{
+    ViewBag.Title = "Restaurants";
+}
+
+<h2>Restaurants</h2>
+<table>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <th>Restaurant Name</th>
+            <th>Phone Number</th>
+        </tr>
+        <tr>
+            <td>@m.RestaurantName</td>
+            <td>@m.RestaurantPhoneNumber</td>
+            <td><a href="~/Customer/ListCategories?restaurantId=@m.Id">See Categories</a></td>
+        </tr>
+    }
+</table>
+
+

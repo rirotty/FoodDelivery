@@ -1,0 +1,31 @@
+﻿@using FoodDeliveryProject.Model.Models
+@model IEnumerable<Ingredient>
+
+@{
+    ViewBag.Title = "Ingredients";
+}
+
+<h2>List Ingredients</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+    </tr>
+    @foreach(var i in Model)
+    {
+        <tr>
+            <td>@i.IngredientName</td>
+            <td>@i.IngredientPrice</td>
+            @if (i.IngredientDescription != null)
+            {
+                <td>@i.IngredientDescription</td>
+            }
+        </tr>
+    }
+</table>
+<form action="~/Restaurant/AddIngredientForm">
+    <input type="hidden" value="@Model.First().FoodId" name="foodId" />
+    <input type="submit" value="Add new" />
+</form>
+

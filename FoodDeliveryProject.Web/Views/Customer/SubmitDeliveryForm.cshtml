@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "SubmitDelivery";
+}
+
+<h2>Submit Delivery</h2>
+
+
+<form action="~/Customer/MakeDelivery" method="post">
+    <table>
+        <tr>
+            <td>Payment Method : </td>
+            <td><input type="radio" name="paymentMethod" value="cash" /> Cash </td>
+            <td><input type="radio" name="paymentMethod" value="creditCard" /> Credit Card </td>
+        </tr>
+        <tr>
+            <td>Delivery Address : </td>
+            <td><input type="radio" name="address" value="myHome" /> My Home </td>
+            <td><input type="radio" name="address" value="other" /> Another Address </td>
+        </tr>
+        <tr><td>Details of the new Address</td></tr>
+        <tr>
+
+            <td>
+                <input type="text" name="streetName" placeholder="Street name" />
+            </td>
+            <td>
+                <input type="text" name="streetNumber" placeholder="Street number" />
+            </td>
+            <td>
+                <input type="text" name="apartmentNumber" placeholder="Apartment number" />
+            </td>
+            <td>
+                <input type="text" name="floor" placeholder="Floor" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="city" placeholder="City" />
+            </td>
+            <td>
+                <input type="text" name="postalCode" placeholder="Postal code" />
+            </td>
+            <td>
+                <input type="text" name="province" placeholder="Province" />
+            </td>
+            <td>
+                <input type="text" name="country" placeholder="Country" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Submit Delivery" />
+            </td>
+        </tr>
+    </table>
+</form>
+

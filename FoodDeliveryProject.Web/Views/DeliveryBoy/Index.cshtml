@@ -1,0 +1,15 @@
+﻿@model FoodDeliveryProject.Model.Models.Delivery
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>Arrival: @Model.DeliveryArrival</h2>
+<h2>DeliveryBoy: @Model.DeliveryBoy.UserName</!--h2>
+<h2>BoyId: @Model.DeliveryBoyId</h2>
+<h2>Departure: @Model.DeliveryDeparture</h2>
+<h2>Status: @Model.DeliveryStatus</h2>
+<h2>ID: @Model.Id</h2>
+<h2>Address: @Model.SpecifiedAddress.StreetName @Model.SpecifiedAddress.StreetNumber</h2>
+<h2>AddressId: @Model.SpecifiedAddressId</h2>
+
+

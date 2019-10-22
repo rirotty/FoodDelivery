@@ -1,0 +1,37 @@
+﻿@using FoodDeliveryProject.Model.Models
+@model IEnumerable<Restaurant>
+@{
+    ViewBag.Title = "Restaurants";
+}
+
+<h2>Restaurants</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Registration status</th>
+    </tr>
+    @foreach (var r in Model)
+    {
+        <tr>
+            <td>@r.RestaurantName</td>
+            <td>@r.RestaurantRegistrationStatus</td>
+            <td>
+                <a href="~/Restaurant/ListRestaurantFood?id=@r.Id">See food</a>
+            </td>
+            <td>
+                <a href="~/Restaurant/ListDeliveries?id=@r.Id">See deliveries</a>
+            </td>
+            <td>
+                <a href="~/Restaurant/EditRestaurantForm?id=@r.Id">Edit</a>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>
+            <form action="~/Restaurant/AddRestaurantForm">
+                <input type="submit" value="Add new" />
+            </form>
+        </td>
+    </tr>
+</table>
+

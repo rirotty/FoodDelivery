@@ -1,0 +1,35 @@
+﻿@using FoodDeliveryProject.Model.Models
+@model IEnumerable<Category>
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>Categories</h2>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+    @foreach(var c in Model)
+    {
+        <tr>
+            <td>@c.CategoryName</td>
+            <td>@c.CategoryDescription</td>
+            <td>
+                <a href="~/Restaurant/ListSubcategories?id=@c.Id">See subcategories</a>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>
+            <form action="~/Restaurant/AddCategoryForm">
+                <input type="submit" value="Add new" />
+            </form>
+        </td>
+    </tr>
+</table>
+

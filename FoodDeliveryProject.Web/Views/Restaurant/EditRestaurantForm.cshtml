@@ -1,0 +1,107 @@
+﻿@using FoodDeliveryProject.Model.Models
+
+@model Restaurant
+
+@{
+    ViewBag.Title = "EditRestaurantForm";
+}
+
+<h2>Edit Restaurant Form</h2>
+<form action="~/Restaurant/EditRestaurant">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input type="text" name="RestaurantName" value="@Model.RestaurantName" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Status:</td>
+            <td>
+                <input type="text" name="RestaurantStatus" value="@Model.RestaurantStatus" />
+            </td>
+        </tr>
+        <tr>
+            <th>Address:</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="StreetName" value="@Model.RestaurantAddress.StreetName" required />
+            </td>
+            <td>
+                <input type="text" name="StreetNumber" value="@Model.RestaurantAddress.StreetNumber" required />
+            </td>
+            <td>
+                <input type="text" name="ApartmentNumber" value="@Model.RestaurantAddress.ApartmentNumber">
+            </td>
+            <td>
+                <input type="text" name="Floor" value="@Model.RestaurantAddress.Floor" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="City" value="@Model.RestaurantAddress.City" required />
+            </td>
+            <td>
+                <input type="text" name="PostalCode" value="@Model.RestaurantAddress.PostalCode" required />
+            </td>
+            <td>
+                <input type="text" name="Province" value="@Model.RestaurantAddress.Province" required />
+            </td>
+            <td>
+                <input type="text" name="Country" value="@Model.RestaurantAddress.Country" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Phone number:</td>
+            <td>
+                <input type="text" name="RestaurantPhoneNumber" value="@Model.RestaurantPhoneNumber" required />
+            </td>
+        </tr>
+        <tr>
+            <td>E-mail:</td>
+            <td>
+                <input type="text" name="RestaurantEmail" value="@Model.RestaurantEmail" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Website:</td>
+            <td>
+                <input type="text" name="RestaurantWebsite" value="@Model.RestaurantWebsite" />
+            </td>
+        </tr>
+        <tr>
+            <td>Preparation time:</td>
+            <td>
+                <input type="text" name="PreparationTime" value="@Model.PreparationTime" />
+            </td>
+        </tr>
+        <tr>
+            <td>Minimum amount:</td>
+            <td>
+                <input type="text" name="MinimumOrderPrice" value="@Model.MinimumOrderPrice" />
+            </td>
+        </tr>
+        <tr>
+            <td>Amount for free delivery:</td>
+            <std>
+                <input type="text" name="FreeDeliveryOrderPrice" value="@Model.FreeDeliveryOrderPrice" />
+            </std>
+        </tr>
+        @*<tr>
+            <td>Vacation:</td>
+            <td>
+                From:<input type="date" name="VacationFrom" value="@Model.VacationDays.First().From" />
+            </td>
+            <td>
+                To:<input type="date" name="VacationTo" value="@Model.VacationDays.First().To" />
+            </td>
+        </tr>*@
+        <tr>
+            <td>
+                <input type="submit" value="Edit restaurant" />
+            </td>
+        </tr>
+    </table>
+</form>
+

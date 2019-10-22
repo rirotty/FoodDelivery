@@ -1,0 +1,32 @@
+﻿@using FoodDeliveryProject.Model.Models
+@model IEnumerable<UsersRoleRequest>
+@{
+    ViewBag.Title = "Admins Home Page";
+}
+
+<h3>Welcome admin</h3>
+<h4>@Html.ActionLink("Manage roles", "ManageRoles", "Administration")</h4>
+
+<table>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.User.UserName
+            </td>
+            <td>
+                @item.Role.Name
+            </td>
+            <td>
+                @item.RequestStatus
+            </td>
+            <td>
+                @item.ValidationDocumentPath
+            </td>
+        </tr>
+    }
+</table>

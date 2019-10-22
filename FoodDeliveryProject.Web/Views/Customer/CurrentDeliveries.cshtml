@@ -1,0 +1,39 @@
+﻿@using FoodDeliveryProject.Model.Models
+@model IEnumerable<Delivery>
+@{
+    ViewBag.Title = "CurrentDeliveries";
+}
+
+<h2>Current Deliveries</h2>
+<table>
+    <tr>
+        <th>Status</th>
+        <th>Delivery Boy</th>
+        <th>Delivery Boy Number</th>
+    </tr>
+    @if (Model.Count() != 0)
+    {
+        foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.DeliveryStatus</td>
+                @if (m.DeliveryBoyId!= null)
+                {
+                    <td>@m.DeliveryBoy.UserName</td>
+                    <td>@m.DeliveryBoy.PhoneNumber</td>}
+                else
+                {
+                    <td>Delivery boy not avalaible yet </td>
+                    <td>Phone number not avalaible yet </td>
+
+                }
+            </tr>
+        }
+    }
+    else
+    {
+        <tr><td>Nothing to show</td></tr>
+    }
+
+</table>
+
